@@ -1,7 +1,19 @@
 <?php
     include '../app/config.php';
-    include '../app/Libraries/Rotas.php';
-    include '../app/Libraries/Controller.php';
+    include '../app/autoload.php';
+    $db = new Database();
+
+    $id = 4;
+
+    $db->query("SELECT * FROM teste_tabela");
+    
+    foreach($db->resultados() as $user){
+        echo $user->nome."<br>";
+    }
+
+    $db->executa();
+
+
 ?>
 
 <!DOCTYPE html>

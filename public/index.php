@@ -1,19 +1,6 @@
 <?php
     include '../app/config.php';
     include '../app/autoload.php';
-    $db = new Database();
-
-    $id = 4;
-
-    $db->query("SELECT * FROM teste_tabela");
-    
-    foreach($db->resultados() as $user){
-        echo $user->nome."<br>";
-    }
-
-    $db->executa();
-
-
 ?>
 
 <!DOCTYPE html>
@@ -21,14 +8,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?=URL?>/public/css/bootstrap.css">
     <link rel="stylesheet" href="<?= URL ?>/public/css/style.css">
     <title>redirect-link</title>
 </head>
 <body>
 
     <?php
-        include '../app/Views/header.php';
         $rota = new Rotas();
         include '../app/Views/footer.php';
     ?>

@@ -1,6 +1,6 @@
 <?php
 
-class Paginas extends Controller{
+class Site extends Controller{
 
     public function index(){
 
@@ -9,12 +9,16 @@ class Paginas extends Controller{
             'descricao' => 'Esta é a descrição da página Home'
         ];
 
-        $this->view('paginas/home', $dados);
+        $this->view('site/home', $dados);
 
     }
 
     public function sobre(){
+
+        echo "<p>View Sobre</p>";
         
+        $this->view('site/sobre');
+
     }
 
 }

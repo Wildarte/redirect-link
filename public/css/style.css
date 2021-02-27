@@ -1,0 +1,19 @@
+a.navbar-brand img{
+  width: 15vw;
+}
+
+a.item-menu{
+  margin: 30px;
+  color: #333;
+  font-weight: 600;
+}
+a.item-menu:hover{
+  text-decoration: none;
+  border-bottom: 1px solid #008037;
+}
+
+@media(max-width: 580px){
+  a.navbar-brand img{
+    width: 50vw;
+  }
+}

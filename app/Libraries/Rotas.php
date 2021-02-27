@@ -2,7 +2,7 @@
 
 class Rotas{
 
-    private $controlador = 'Paginas';
+    private $controlador = 'Site';
     private $metode = 'index';
     private $param = [];
     
@@ -28,7 +28,6 @@ class Rotas{
         $this->param = $url ? array_values($url) : [];
         call_user_func_array([$this->controlador, $this->metode], $this->param);
 
-        var_dump($this);
     }
 
     public function url(){

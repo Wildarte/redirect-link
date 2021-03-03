@@ -16,4 +16,32 @@ a.item-menu:hover{
   a.navbar-brand img{
     width: 50vw;
   }
+  .left-home{
+    height: 80vh!important;
+    width: 100%!important;
+    padding: 10vh 0!important;
+  }
+  .left-home-text{
+    text-align: center;
+    color: #343434;
+    font-weight: 600;
+    margin: 20px 10px!important;
+  }
+  .left-home a{
+    text-align: center !important;
+  }
+  .right-home{
+    display: none;
+  }
+
+}
+
+.left-home{
+  width: 50%;
+  padding: 20vh 0;
+}
+.left-home-text{
+  color: #343434;
+  font-weight: 600;
+  margin: 20px 0;
 }

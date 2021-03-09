@@ -13,8 +13,8 @@
             </ul>
             <div class=" my-2 my-lg-0">
                 <a href="<?=URL?>/site/sobre" class="item-menu">Sobre</a>
-                <a href="<?=URL?>/user/logar" class="btn btn-success m-2">Logar</a>
-                <a href="<?=URL?>/user/cadastrar" class="btn btn-outline-success">Cadastrar-se</a>
+                <a href="<?=URL?>/users/logar" class="btn btn-success m-2">Logar</a>
+                <a href="<?=URL?>/users/cadastrar" class="btn btn-outline-success">Cadastrar-se</a>
             </div>
         </div>
     </div>

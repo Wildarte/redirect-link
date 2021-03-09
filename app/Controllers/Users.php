@@ -1,6 +1,11 @@
 <?php
 
-class User extends Controller{
+class Users extends Controller{
+
+    public function __construct()
+    {
+        $this->userModel = $this->model("User");
+    }
 
     public function cadastrar(){
 
@@ -44,13 +49,26 @@ class User extends Controller{
                         elseif($form['senha'] != $form['confirma_senha']):
                             $dados['confirma_senha_erro'] = "As senhas devem ser iguais";
                         else:
+                            $dados['senha'] = password_hash($form['senha'], PASSWORD_DEFAULT);
+
+                            if($this->userModel->insert($dados)):
+                                echo "Cadastro realizado com sucesso";
+                            else:
+                            endif;
+
                             echo "Pode enviar o formulário";
                     endif;
     
                 endif;
 
-                
             endif;
+
+            echo "<br>Senha original: ".$form['senha'] ."<hr>";
+            echo "<br>Senha md5: ".md5($form['senha']) ."<hr>";
+            echo "<br>Senha sha1: ".sha1($form['senha']) ."<hr>";
+            echo "<br>Senha segura: ".$dados['senha'] ."<hr>";
+
+            var_dump($form);
 
         else:
 

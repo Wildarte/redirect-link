@@ -43,6 +43,8 @@ class Users extends Controller{
                     $dados['nome_erro'] = "Insira um nome válido";
                 elseif(Valida::validaEmail($form['email'])):
                     $dados['email_erro'] = 'e-mail inválido';
+                elseif($this->userModel->validarEmail($form['email'])):
+                    $dados['email_erro'] = 'e-mail já cadastrado';
                 else:
                     if(strlen($form['senha']) < 6):
                         $dados['senha_erro'] = 'A senha deve conter pelo menos 6 caracteres';
@@ -63,13 +65,6 @@ class Users extends Controller{
 
             endif;
 
-            echo "<br>Senha original: ".$form['senha'] ."<hr>";
-            echo "<br>Senha md5: ".md5($form['senha']) ."<hr>";
-            echo "<br>Senha sha1: ".sha1($form['senha']) ."<hr>";
-            echo "<br>Senha segura: ".$dados['senha'] ."<hr>";
-
-            var_dump($form);
-
         else:
 
             $dados = [
@@ -86,20 +81,87 @@ class Users extends Controller{
         endif;
 
 
-        $this->view('user/cadastrar', $dados);
+        $this->view('users/cadastrar', $dados);
 
     }
 
     public function logar(){
 
-        $this->view('user/logar');
+        $form = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+        if(isset($form)):
+            
+            $dados = [
+                'email' => trim($form['email']),
+                'senha' => trim($form['senha'])
+            ];
+
+            if(in_array("", $form)):
+
+                if(empty($form['email'])):
+                    $dados['email_erro'] = 'Preencha o campo email';
+                endif;
+
+                if(empty($form['senha'])):
+                    $dados['senha_erro'] = 'Preencha o campo senha';
+                    
+                endif;
+            else:
+                if(Valida::validaEmail($form['email'])):
+                    $dados['email_erro'] = 'e-mail inválido';
+                else:
+                    $user = $this->userModel->validarUser($form['email'], $form['senha']);
+                    if(!$user):
+                        
+                        $dados['user_erro'] = 'usuário/senha inválido';
+                    else:
+                        $this->createSessionUser($user);
+                        header("Location: ".URL."");
+                        echo "Pode fazer login <hr>";
+                    endif;
+    
+                endif;
+
+            endif;
+
+            var_dump($form);
+
+        else:
+
+            $dados = [
+                'email' => '',
+                'senha' => '',
+                'email_erro' => '',
+                'senha_erro' => '',
+                'user_erro' => ''
+            ];
+
+        endif;
+
+        $this->view('users/logar', $dados);
 
     }
 
     public function redefinir(){
 
-        $this->view('user/redefinir');
+        $this->view('users/redefinir');
 
+    }
+
+    private function createSessionUser($user){
+        $_SESSION['user_id'] = $user->id;
+        $_SESSION['user_name'] = $user->nome;
+        $_SESSION['user_email'] = $user->email;
+    }
+
+    public function logout(){
+        unset($_SESSION['user_id']);
+        unset($_SESSION['user_name']);
+        unset($_SESSION['user_email']);
+
+        session_destroy();
+
+        header("Location: ".URL."");
     }
 
 }

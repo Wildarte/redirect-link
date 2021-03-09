@@ -1,5 +1,3 @@
-<?php include '../app/Views/header.php'; ?>
-
 <section class="container">
     <div class="row">
         <div class="left-home">

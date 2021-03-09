@@ -68,7 +68,7 @@
             </form>
 
             <div class="row text-center">
-                <span class="col-12"><a href="<?=URL?>/public/user/logar">já tenho uma conta</a></span>
+                <span class="col-12"><a href="<?=URL?>/public/users/logar">já tenho uma conta</a></span>
             </div>
                 
         </div>

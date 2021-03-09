@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include '../app/config.php';
     include '../app/autoload.php';
 ?>
@@ -15,6 +16,7 @@
 <body>
 
     <?php
+        include '../app/Views/header.php';
         $rota = new Rotas();
         include '../app/Views/footer.php';
     ?>

@@ -144,7 +144,41 @@ class Users extends Controller{
 
     public function redefinir(){
 
-        $this->view('users/redefinir');
+        $form = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+        if(isset($form)):
+
+            $dados = [
+                'email' => trim($form['email'])
+            ];
+
+            $token = uniqid();
+
+            if(empty($form['email'])):
+                $dados['email_erro'] = 'Preencha com seu e-mail cadastrado';
+            elseif(Valida::validaEmail($form['email'])):
+                $dados['email_erro'] = 'e-mail inválido';
+            elseif(!$this->userModel->validarEmail($form['email'])):
+                $dados['email_erro'] = 'email não cadastrado';
+                Sessao::msg('user', 'e-mail não cadastrado', 'alert alert-danger');
+            else:
+
+                //aqui vai o código que envia o token para o usuário
+
+                Sessao::msg('user', 'Você recebeu um email em <strong>'.$form['email'].'</strong> com instruções para redefinir sua senha<br>Seu token: '.$token.'');
+
+
+            endif;
+        else:
+
+            $dados = [
+                'email' => '',
+                'email_erro' => ''
+            ];
+
+        endif;
+
+        $this->view('users/redefinir', $dados);
 
     }
 

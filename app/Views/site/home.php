@@ -1,3 +1,5 @@
+<?= Sessao::msg('user') ?>
+
 <section class="container">
     <div class="row">
         <div class="left-home">

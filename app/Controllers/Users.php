@@ -54,7 +54,8 @@ class Users extends Controller{
                             $dados['senha'] = password_hash($form['senha'], PASSWORD_DEFAULT);
 
                             if($this->userModel->insert($dados)):
-                                echo "Cadastro realizado com sucesso";
+                                Sessao::msg('user', 'Cadastro realizado com sucesso!');
+                                Redirect::url('/');
                             else:
                             endif;
 
@@ -113,18 +114,17 @@ class Users extends Controller{
                     $user = $this->userModel->validarUser($form['email'], $form['senha']);
                     if(!$user):
                         
-                        $dados['user_erro'] = 'usuário/senha inválido';
+                        Sessao::msg('user', 'Usuário ou senha inválido', 'alert alert-danger');
+
                     else:
                         $this->createSessionUser($user);
-                        header("Location: ".URL."");
+                        Redirect::url('/');
                         echo "Pode fazer login <hr>";
                     endif;
     
                 endif;
 
             endif;
-
-            var_dump($form);
 
         else:
 
@@ -161,7 +161,7 @@ class Users extends Controller{
 
         session_destroy();
 
-        header("Location: ".URL."");
+        Redirect::url('/');
     }
 
 }

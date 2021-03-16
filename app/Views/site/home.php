@@ -1,3 +1,4 @@
+<?php include '../app/Views/header.php'; ?>
 <?= Sessao::msg('user') ?>
 
 <section class="container">

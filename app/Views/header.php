@@ -15,7 +15,7 @@
                 <div class=" my-2 my-lg-0">
                     <a href="<?=URL?>/site/sobre" class="item-menu">Sobre</a>
 
-                    <?php if(isset($_SESSION['user_id'])): ?>
+                    <?php if(Sessao::estaLogado()): ?>
                         <div class="btn-group" role="group" aria-label="Basic example">
                             <button type="button" class="btn btn-success"><strong>Usuário: </strong><?= $_SESSION['user_name'] ?></button>
                             <a href="<?=URL?>/users/logout" class="btn btn-danger">Sair</a>

@@ -28,5 +28,15 @@ class Sessao{
 
     }
 
+    public static function estaLogado(){
+
+        if(isset($_SESSION['user_id'])):
+            return true;
+        else:
+            return false;
+        endif;
+
+    }
+
 
 }

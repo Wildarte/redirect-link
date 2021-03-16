@@ -12,11 +12,11 @@
     <link rel="stylesheet" href="<?=URL?>/public/css/bootstrap.css">
     <link rel="stylesheet" href="<?= URL ?>/public/css/style.css">
     <title>redirect-link</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
     <?php
-        include '../app/Views/header.php';
         $rota = new Rotas();
         include '../app/Views/footer.php';
     ?>

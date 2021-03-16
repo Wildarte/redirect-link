@@ -1,3 +1,5 @@
+<?php include '../app/Views/header.php'; ?>
+
 <div class="container" style="height: 100vh">
 
     <div class="row">

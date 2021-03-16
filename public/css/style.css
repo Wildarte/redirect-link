@@ -48,7 +48,7 @@ a.item-menu:hover{
 
 
 /*style do dashboard*/
-/*sidebar w3schools com algumas alterações*/
+/*sidebar*/
 .sidebar {
   height: calc(100vh - 10vh);
   margin-top: 10vh;
@@ -127,5 +127,5 @@ a.item-menu:hover{
   }
 }
 
-/*fim do sidebar w3schools com algumas alterações*/
+/*fim do sidebar*/
 /*fim style dashboard*/

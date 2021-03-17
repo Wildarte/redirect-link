@@ -23,19 +23,25 @@
     </nav>
 </header>
 
-<div id="mySidebar" class="sidebar">
-  <a href="#">About</a>
-  <a href="#">Services</a>
-  <a href="#">Clients</a>
-  <a href="#">Contact</a>
-</div>
-<button class="openbtn" id="openbtn" onclick="openNav()">☰</button>
+<main style="background-color: #eee; height: 100vh">
 
-<div id="main">
-    
-    <section>
-        <header>
-            <h1>Dashboard</h1>
+    <div id="mySidebar" class="sidebar">
+        <header class="header-sidebar">
+            <h1 class="title-sidebar"><i class="fas fa-tachometer-alt"></i> Dashboard</h1>
         </header>
-    </section>
-</div>
+        <div class="">
+            <a href="" class="">Campanhas</a>
+        </div>
+    </div>
+    <button class="openbtn" id="openbtn" onclick="openNav()">☰</button>
+
+    <div id="main">
+        
+        <section>
+            <header>
+                <h1>Dashboard</h1>
+            </header>
+        </section>
+    </div>
+
+</main>

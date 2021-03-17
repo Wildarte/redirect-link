@@ -50,17 +50,16 @@ a.item-menu:hover{
 /*style do dashboard*/
 /*sidebar*/
 .sidebar {
-  height: calc(100vh - 10vh);
+  position: absolute;
+  min-height: 100%;
   margin-top: 10vh;
   width: 250px;
-  position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color:#343434;
   overflow-x: hidden;
   transition: 0.5s;
-  padding-top: 60px;
 }
 
 .sidebar a {
@@ -88,10 +87,16 @@ a.item-menu:hover{
   margin-left: 250px;
   font-size: 20px;
   cursor: pointer;
-  background-color: #111;
+  background-color: #454545;
   color: white;
   padding: 10px 15px;
   border: none;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-color: #000;
+  border-bottom-right-radius: 15px;
 }
 
 .openbtn:hover {
@@ -125,6 +130,16 @@ a.item-menu:hover{
   #openbtn{
     margin-left: 0;
   }
+}
+.header-sidebar{
+  height: 5vh;
+  padding: 10px 5px;
+}
+
+.header-sidebar .title-sidebar{
+  text-align: center;
+  font-size: 1em;
+  color: #fff;
 }
 
 /*fim do sidebar*/
